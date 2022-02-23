@@ -20,7 +20,7 @@ import (
 
 var appConfig *Config
 var once sync.Once
-var configFile = "./config.yaml"
+var configFile = "./kubemq.yaml"
 
 type ServerState struct {
 	Host                string `json:"host"`
@@ -200,7 +200,7 @@ func getConfigDataFromEnv() (string, error) {
 			if fileExt == "" {
 				return "", fmt.Errorf("invalid environment config format")
 			}
-			confFile, err := filepath.Abs("./config" + fileExt)
+			confFile, err := filepath.Abs("./kubemq" + fileExt)
 			if err != nil {
 				return "", fmt.Errorf("error getting absolute path for config: %s", err.Error())
 			}
